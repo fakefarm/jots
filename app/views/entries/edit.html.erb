@@ -1,6 +1,14 @@
-<h1>Editing Entry</h1>
+<h1><%= @entry.title %></h1>
 
-<%= render 'form' %>
+<%= form_for(@entry) do |f| %>
 
-<%= link_to 'Show', @entry %> |
+  <div class="field">
+    <%= f.text_area :body, placeholder: 'why?' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Back', entries_path %>

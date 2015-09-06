@@ -6,8 +6,6 @@
   </div>
 <% end %>
 <hr>
-<ul>
   <% @entries.each do |entry| %>
-    <li><%= link_to entry.title, entry, method: :delete %></li>
+    <h3><%= link_to entry.title, entry, method: :delete %><span class='edit'><%= link_to 'why?', edit_entry_path(entry) %></span></h3>
   <% end %>
-</ul>

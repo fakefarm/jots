@@ -3,6 +3,7 @@
 @import 'base/base';
 @import 'layout';
 
+// temporary
 
 .field {
   @include row;
@@ -16,4 +17,15 @@
   }
 }
 
-
+h3 {
+  font-weight: 200;
+  padding: 0.25em 0;
+  a {
+  color: #4C4C4C;
+  }
+  .edit {
+    font-size: 0.5em;
+    color: #666666;
+    margin-left: 1em;
+  }
+}
