@@ -29,3 +29,17 @@ h3 {
     margin-left: 1em;
   }
 }
+
+.edit-box {
+  display: none;
+  .field { @include row; }
+  textarea {
+    @include span-columns(9);
+    border: none;
+    background: #eee;
+  }
+  input[type=submit] {
+    @include span-columns(3);
+  }
+
+}

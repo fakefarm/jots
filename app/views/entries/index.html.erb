@@ -1,11 +1,21 @@
 <%= form_for(@entry) do |f| %>
 
   <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.text_field :title, autofocus: true, class: 'jot-entry' %>
     <%= f.submit 'jot', class: 'jot-submit' %>
   </div>
 <% end %>
 <hr>
   <% @entries.each do |entry| %>
-    <h3><%= link_to entry.title, entry, method: :delete %><span class='edit'><%= link_to 'why?', edit_entry_path(entry) %></span></h3>
+    <h3><%= link_to entry.title, entry, method: :delete %><span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a></span></h3>
+    <div class='edit-box' id="edit_box_<%= entry.id %>">
+      <%= form_for(entry) do |f| %>
+        <div class="field">
+          <%= f.text_area :body, placeholder: 'why?' %>
+          <%= f.submit 'enter' %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
+
