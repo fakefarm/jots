@@ -8,11 +8,17 @@
 <% end %>
 <hr>
   <% @entries.each do |entry| %>
-    <h3><%= link_to entry.title, entry, method: :delete %><span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a></span></h3>
+    <h3><%= entry.title %>
+      <span class='controls'>
+        <span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a>
+        </span>
+        <span class='edit'><%= link_to 'delete', entry, method: :delete %></span></h3>
+      </span>
+    </h3>
     <div class='edit-box' id="edit_box_<%= entry.id %>">
       <%= form_for(entry) do |f| %>
         <div class="field">
-          <%= f.text_area :body, placeholder: 'why?' %>
+          <%= f.text_area :body, placeholder: "why is #{entry.title} on your mind?", autofocus: true %>
           <%= f.submit 'enter' %>
         </div>
       <% end %>
