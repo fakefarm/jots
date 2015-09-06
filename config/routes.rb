@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'entries#index'
+
   resources :tags
 
   resources :entries
