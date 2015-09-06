@@ -1,21 +1,13 @@
-<h1>On the mind</h1>
-
 <%= form_for(@entry) do |f| %>
 
   <div class="field">
-    <%= f.text_field :title, autofocus: true %>
-    <%= f.submit 'record' %>
+    <%= f.text_field :title, autofocus: true, class: 'jot-entry' %>
+    <%= f.submit 'jot', class: 'jot-submit' %>
   </div>
 <% end %>
-
-
-<table>
-  <tbody>
-    <% @entries.each do |entry| %>
-      <tr>
-        <td><%= link_to entry.title, entry %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<hr>
+<ul>
+  <% @entries.each do |entry| %>
+    <li><%= link_to entry.title, entry, method: :delete %></li>
+  <% end %>
+</ul>

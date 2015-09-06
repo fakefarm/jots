@@ -1,0 +1,5 @@
+.l-container {
+  @include outer-container;
+  margin-top: 5em;
+  padding: 1em;
+}

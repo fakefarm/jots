@@ -1,0 +1,19 @@
+@import 'bourbon';
+@import 'neat';
+@import 'base/base';
+@import 'layout';
+
+
+.field {
+  @include row;
+
+  .jot-entry {
+    @include span-columns(9);
+  }
+
+  .jot-submit {
+    @include span-columns(3);
+  }
+}
+
+
