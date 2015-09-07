@@ -2,12 +2,13 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   def index
-    @entries = Entry.where(user_id: current_user.id).reverse
+    @entries = Entry.where(user_id: current_user.id).
+                     where("DATE(created_at) = ?", Date.today).
+                     reverse
     @entry = Entry.new
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @entry = Entry.new
