@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'entries#index'
 
-  get '/jots' => 'entries#index'
-
-  resources :entries
-
+  resources :entries, except: :show
+  resources :searches, only: [:index]
+  resources :archives, only: [:index, :show]
 end
