@@ -1,14 +1,22 @@
 <%= form_for(@entry) do |f| %>
-
   <div class="field">
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.text_field :title, autofocus: true, class: 'jot-entry' %>
     <%= f.submit 'jot', class: 'jot-submit' %>
   </div>
 <% end %>
+
+  <%= form_tag('/searches', method: :get) do %>
+    <%= text_field :search, 'search', placeholder: 'search' %>
+  <% end %>
 <hr>
+  <h2>Today</h2>
   <% @entries.each do |entry| %>
-    <h3><%= entry.title %>
+    <h3><%= link_to entry.title, "/jots/#{entry.title.parameterize}" %>
+      <% if entry.body.try(:size) %>
+        <span class='detail fa fa-commenting-o'></span>
+      <% end  %>
+      <span class='detail'><%= entry.created_at.strftime("%m/%d/%y") %></span>
       <span class='controls'>
         <span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a>
         </span>
@@ -24,4 +32,3 @@
       <% end %>
     </div>
   <% end %>
-
