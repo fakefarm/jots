@@ -20,8 +20,12 @@
 h3 {
   font-weight: 200;
   padding: 0.25em 0;
-  a {
+  color: #666666;
+  span a {
   color: #FF6666;
+  }
+  .detail {
+    font-size: 0.6em;
   }
   .edit {
     font-size: 0.5em;
