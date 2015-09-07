@@ -1,0 +1,38 @@
+<%= form_for(@entry) do |f| %>
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.text_field :title, autofocus: true, class: 'jot-entry' %>
+    <%= f.submit 'jot', class: 'jot-submit' %>
+  </div>
+<% end %>
+
+  <%= form_tag('/search', method: :get) do %>
+    <%= text_field :search, 'search', placeholder: 'search' %>
+  <% end %>
+<hr>
+  <h2><%= @date.to_date.strftime("%A, %B %e") %></h2>
+  <% @entries.each do |entry| %>
+    <h3><%= link_to entry.title, "/jots/#{entry.title.parameterize}" %>
+      <% if entry.body.try(:size) %>
+        <span class='detail fa fa-commenting-o'></span>
+      <% end  %>
+      <span class='detail'><%= entry.created_at.strftime("%m/%d/%y") %></span>
+      <span class='controls'>
+        <span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a>
+        </span>
+        <span class='edit'><%= link_to 'delete', entry, method: :delete %></span></h3>
+      </span>
+    </h3>
+    <div class='edit-box' id="edit_box_<%= entry.id %>">
+      <%= form_for(entry) do |f| %>
+        <div class="field">
+          <%= f.text_area :body, placeholder: "why is #{entry.title} on your mind?", autofocus: true %>
+          <%= f.submit 'enter' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% @archives.each do |archive| %>
+      <p><%= link_to archive, "/archives/#{archive}" %></p>
+  <% end %>
