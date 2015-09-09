@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def index
-    search = params[:search][:search]
-    @entries = Entry.where(user_id: current_user.id).where("title LIKE \"%#{search}%\"")
+    search = params[:search][:search] # _dw how to clean up?
+    @entries = Entry.search(search)
   end
 
   def show
