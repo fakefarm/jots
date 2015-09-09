@@ -1,7 +1,7 @@
 <ul>
   <li><%= link_to 'today', root_path %></li>
   <% @archives.each do |archive| %>
-    <li><%= link_to archive, "archives/#{archive}" %></li>
+    <li><%= link_to archive, "/archives/#{archive}" %></li>
   <% end %>
 </ul>
 
