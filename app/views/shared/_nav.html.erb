@@ -1,10 +1,8 @@
-<p>
-  Welcome, <%= current_user.email %>!
-</p>
 <ul>
-  <li><%= link_to 'home', root_path %></li>
-  <li><%= link_to 'archives', "/archives" %></li>
-  <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete  %></li>
+  <li><%= link_to 'today', root_path %></li>
+  <% @archives.each do |archive| %>
+    <li><%= link_to archive, "archives/#{archive}" %></li>
+  <% end %>
 </ul>
 
 

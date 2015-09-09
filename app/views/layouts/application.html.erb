@@ -8,11 +8,19 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body class='l-container'>
-  <%= render 'shared/nav' %>
-  <%= render 'shared/new_jot' %>
-  <%= render 'shared/search' %>
-  <hr>
-  <%= yield %>
+<body>
+  <%= render 'shared/authentication' %>
+  <section class='l-container'>
+    <section class='l-content main-content'>
+      <div class="line-decoration">
+        <%= yield %>
+      </div>
+    </section>
+    <section class='l-sidebar'>
+      <%= render 'shared/new_jot' %>
+      <%= render 'shared/search' %>
+      <%= render 'shared/nav' %>
+    </section>
+  </section>
 </body>
 </html>

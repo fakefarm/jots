@@ -3,7 +3,6 @@
       <% if entry.body.try(:size) %>
         <span class='detail fa fa-commenting-o'></span>
       <% end  %>
-      <span class='detail'><%= entry.created_at.strftime("%m/%d/%y") %></span>
       <span class='controls'>
         <span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a>
         </span>
@@ -14,7 +13,7 @@
       <%= form_for(entry) do |f| %>
         <div class="field">
           <%= f.text_area :body, placeholder: "why is #{entry.title} on your mind?", autofocus: true %>
-          <%= f.submit 'enter' %>
+          <%= f.submit 'save' %>
         </div>
       <% end %>
     </div>
