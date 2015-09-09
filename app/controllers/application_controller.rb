@@ -4,16 +4,17 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
   before_action :create_entry
   before_action :stats
-  before_action :list_archives
+  before_action :side_bar_nav
 
   def create_entry
     @entry = Entry.new
   end
 
-  def list_archives
+  def side_bar_nav
     if current_user
       @archives = Entry.where(user_id: current_user.id).
                         inject([]) { |memo, entry| memo.push entry.created_at.to_date; memo }.uniq
+      @tag_list = Tag.where(user_id: current_user.id)
     end
   end
 

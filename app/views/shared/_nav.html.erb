@@ -1,8 +1,18 @@
 <ul>
   <li><%= link_to 'today', root_path %></li>
+</ul>
+<hr>
+<ul>
   <% @archives.each do |archive| %>
     <li><%= link_to archive, "/archives/#{archive}" %></li>
   <% end %>
 </ul>
+<hr>
+<ul>
+  <% @tag_list.each do |tag| %>
+    <li class='tag'><%= link_to tag.title[1..-1], "/tags/#{tag.title[1..-1]}" %></li>
+  <% end %>
+</ul>
+
 
 
