@@ -1,4 +1,8 @@
+<p>
+  Welcome, <%= current_user.email %>
+</p>
 <ul>
   <li><%= link_to 'home', root_path %></li>
   <li><%= link_to 'archives', "/archives" %></li>
+  <li><%= link_to 'logout', destroy_user_session_path %></li>
 </ul>
