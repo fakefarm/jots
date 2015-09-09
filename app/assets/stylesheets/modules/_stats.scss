@@ -1,0 +1,16 @@
+.stats {
+  color: rgb(189, 188, 188);
+  @include row;
+  @include media($medium-screen) {
+    padding: 0.5em 1.25em;
+    margin-bottom: 1em;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 3px;
+  }
+  .count {
+    @include media($medium-screen) {
+      font-size: 1.5em;
+      @include span-columns(3);
+    }
+  }
+}

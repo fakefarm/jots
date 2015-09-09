@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   layout :layout_by_resource
   before_action :create_entry
+  before_action :stats
   before_action :list_archives
 
   def create_entry
@@ -13,6 +14,14 @@ class ApplicationController < ActionController::Base
     if current_user
       @archives = Entry.where(user_id: current_user.id).
                         inject([]) { |memo, entry| memo.push entry.created_at.to_date; memo }.uniq
+    end
+  end
+
+  def stats
+    if current_user
+      @entry_count = Entry.where(user_id: current_user.id).count
+      @days = Entry.where(user_id: current_user.id).
+                        inject([]) { |memo, entry| memo.push entry.created_at.to_date; memo }.uniq.count
     end
   end
 
