@@ -4,6 +4,7 @@ gem 'rails', '4.2.0'
 
 gem 'searchkick'
 gem 'devise'
+gem 'pry-rails'
 
 gem 'bourbon'
 gem 'neat'
