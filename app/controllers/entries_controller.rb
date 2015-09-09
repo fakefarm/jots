@@ -5,13 +5,11 @@ class EntriesController < ApplicationController
     @entries = Entry.where(user_id: current_user.id).
                      where("DATE(created_at) = ?", Date.today).
                      reverse
-    @entry = Entry.new
   end
 
   def show; end
 
   def new
-    @entry = Entry.new
   end
 
   def edit
