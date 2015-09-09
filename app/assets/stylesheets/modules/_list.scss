@@ -2,7 +2,21 @@
   @include media($medium-screen) {
     padding-left: 0.25em;
     &:hover {
-      background: #F9EFF0;
+      background: #FBFBFB;
+    }
+  }
+  .tag {
+    @include media($medium-screen) {
+      font-size: 0.65em;
+      a {
+        color: #7B7B7B;
+        border-bottom: 1px solid #7B7B7B;
+        display: inline-block;
+        padding: 0.25em;
+        &:hover{
+          background: #D8F2FF;
+        }
+      }
     }
   }
   .delete {
@@ -14,6 +28,10 @@
         padding: 16px;
         display: inline-block;
         color: #F495A4;
+        &:hover{
+          background: #F5D176;
+          font-weight: bold;
+        }
       }
     }
   }

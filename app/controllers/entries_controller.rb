@@ -18,6 +18,19 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
 
+    # _dw TODO move into a service model
+
+    @tags = params[:entry][:title].split(' ').select do |t|
+      t.include?('#')
+    end
+
+    t = Tag.find_or_create_by(title: @tags[0], user_id: current_user.id)
+    @entry.tag_id = t.id
+
+    @entry.title = params[:entry][:title].split(' ').select do |t|
+      t.exclude?('#')
+    end.join(' ')
+
     respond_to do |format|
       if @entry.save
         format.html { redirect_to entries_path, notice: 'Entry was successfully created.' }

@@ -1,15 +1,17 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag, only: [:edit, :update, :destroy]
 
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    @Entries = Entry.where(tag: params[:tags])
   end
 
   # GET /tags/1
   # GET /tags/1.json
   def show
+    tag = Tag.where(title: "#" + params[:id]).first.id
+    @entries = Entry.where(tag_id: tag)
   end
 
   # GET /tags/new

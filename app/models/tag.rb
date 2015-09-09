@@ -1,3 +1,3 @@
 class Tag < ActiveRecord::Base
-  belongs_to :entry
+  has_many :entries
 end

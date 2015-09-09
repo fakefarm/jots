@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
       @entry_count = Entry.where(user_id: current_user.id).count
       @days = Entry.where(user_id: current_user.id).
                         inject([]) { |memo, entry| memo.push entry.created_at.to_date; memo }.uniq.count
+      @tags = Tag.where(user_id: current_user.id).count
     end
   end
 

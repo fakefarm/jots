@@ -1,5 +1,5 @@
 class Entry < ActiveRecord::Base
-  has_many :entries
+  belongs_to :tag
 
   def self.search(query)
     where("title like ?", "%#{query}%")
