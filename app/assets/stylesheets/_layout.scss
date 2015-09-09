@@ -1,5 +1,19 @@
 .l-container {
-  @include outer-container;
-  margin-top: 5em;
-  padding: 1em;
+  @include media($medium-screen) {
+    @include row;
+    padding: 0 1em;
+    margin-top: 2em;
+  }
+}
+
+.l-content {
+  @include media($medium-screen) {
+    @include span-columns(8);
+  }
+}
+
+.l-sidebar {
+  @include media($medium-screen) {
+    @include span-columns(4);
+  }
 }

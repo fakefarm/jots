@@ -1,0 +1,22 @@
+.authentication {
+  @include row();
+  background: $dark-gray;
+  color: white;
+  ul {
+    @include media($medium-screen) {
+      text-align: right;
+    }
+  }
+  li {
+    @include media($medium-screen) {
+      display: inline-block;
+    }
+  }
+  a {
+    display: inline-block;
+    color: white;
+    @include media($medium-screen) {
+      padding: 0.25em;
+    }
+  }
+}

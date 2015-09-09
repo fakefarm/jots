@@ -1,5 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,800);
+
 // Typography
-$sans-serif: $helvetica;
+$sans-serif: "Open Sans";
 $serif: $georgia;
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
@@ -23,8 +25,8 @@ $base-spacing: $base-line-height * 1em;
 $base-z-index: 0;
 
 // Colors
-$blue: #477DCA;
-$dark-gray: #333;
+$blue: #64989D;
+$dark-gray: #5F5D66;
 $medium-gray: #999;
 $light-gray: #DDD;
 $light-red: #FBE3E4;
