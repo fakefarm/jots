@@ -1,17 +1,18 @@
+<section class='entry'>
   <% @entries.each do |entry| %>
-    <h3 class='entry'><%= entry.title %>
+    <h3><%= entry.title %>
       <% if entry.body.try(:size) %>
         <span class='detail fa fa-commenting-o'></span>
       <% end  %>
-      <% if entry.tag_id %>
+    </h3>
+    <div class='controls'>
+      <span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a>
+      </span>
+      <span class='edit delete'><%= link_to 'forget', entry, method: :delete %></span></h3>
+      <% if entry.tag.present? %>
         <span class='tag'><%= link_to entry.tag.title[1..-1], "/tags/#{entry.tag.title[1..-1]}" %></span>
       <% end %>
-      <span class='controls'>
-        <span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a>
-        </span>
-        <span class='edit delete'><%= link_to 'forget', entry, method: :delete %></span></h3>
-      </span>
-    </h3>
+    </div>
     <div class='edit-box' id="edit_box_<%= entry.id %>">
       <%= form_for(entry) do |f| %>
         <div class="field">
@@ -21,3 +22,4 @@
       <% end %>
     </div>
   <% end %>
+</section>

@@ -8,8 +8,13 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body class='l-container welcome'>
-  <h3>a tiny journal jot your thoughts.</h4>
-  <%= yield %>
+<body class='welcome'>
+  <section class='headline'>
+    <h3>Confession is good for the soul</h3>
+    <p>A spot for private thoughts, prayers, and ideas</p>
+  </section>
+  <div class="form">
+    <%= yield %>
+  </div>
 </body>
 </html>

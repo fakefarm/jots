@@ -1,0 +1,16 @@
+.welcome {
+  @include outer-container;
+  margin-top: 2em;
+  .headline {
+    text-align: center;
+    font-size: 2em;
+  }
+  .form {
+    margin: 0 auto;
+    max-width: 40em;
+    padding: 2em;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+  }
+}
