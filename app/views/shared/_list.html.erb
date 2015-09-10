@@ -9,7 +9,7 @@
       <span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a>
       </span>
       <span class='edit delete'><%= link_to 'forget', entry, method: :delete %></span></h3>
-      <% if entry.tag.present? %>
+      <% if entry.tag_id.present? && entry.tag.present?  %>
         <span class='tag'><%= link_to entry.tag.title[1..-1], "/tags/#{entry.tag.title[1..-1]}" %></span>
       <% end %>
     </div>
