@@ -1,11 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
+today_one:
+  title_without_tag: MyString with a
+  entry: MyString with a #tag
   body: MyText
   user_id: 1
 
-two:
-  title: MyString
+
+today_two:
+  title_without_tag: MyString with a
+  entry: MyString with a #tag
   body: MyText
   user_id: 1
