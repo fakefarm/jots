@@ -16,24 +16,24 @@ class EntriesController < ApplicationController
   end
 
   def create
+=begin
+  1. new entry
+  2. get my tags
+  3. find the tag
+  4. add tag id to entry
+  5. save
+=end
+
     @entry = Entry.new(entry_params)
-
-    # _dw TODO move into a service model
-
-    @tags = params[:entry][:title].split(' ').select do |t|
-      t.include?('#')
-    end
-
-    t = Tag.find_or_create_by(title: @tags[0], user_id: current_user.id)
-    @entry.tag_id = t.id
-
-    @entry.title = params[:entry][:title].split(' ').select do |t|
-      t.exclude?('#')
-    end.join(' ')
+    @entry.tag_id = AssignTag.new(@entry.tag, current_user.id).id
+    @entry.title_without_tag = @entry.title
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to entries_path, notice: 'Entry was successfully created.' }
+        format.html do
+         redirect_to URI(request.referer).path,
+          notice: 'Entry was successfully created.'
+       end
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new }
@@ -68,6 +68,6 @@ class EntriesController < ApplicationController
     end
 
     def entry_params
-      params.require(:entry).permit(:title, :body, :user_id)
+      params.require(:entry).permit(:entry, :body, :user_id)
     end
 end
