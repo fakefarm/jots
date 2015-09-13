@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root 'entries#index'
+  root 'today#index'
 
   get '/welcome' => 'static#index'
 
