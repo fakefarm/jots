@@ -1,0 +1,24 @@
+<section class='entry'>
+  <h3 class='.title-without-tag'><%= entry.title_without_tag %>
+    <% if entry.body.try(:size) %>
+    <span class='detail fa fa-commenting-o'></span>
+    <% end  %>
+  </h3>
+
+  <div class='controls'>
+    <span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a>
+    </span>
+    <span class='edit delete'><%= link_to 'delete', entry, method: :delete %></span></h3>
+    <% if entry.tag_id.present? && entry.tag.present?  %>
+    <span class='tag'><%= link_to entry.tag, "/tags/#{entry.tag[1..-1]}" %></span>
+    <% end %>
+  </div>
+  <div class='edit-box' id="edit_box_<%= entry.id %>">
+    <%= form_for(entry) do |f| %>
+    <div class="field">
+      <%= f.text_area :body %>
+      <%= f.submit 'save' %>
+    </div>
+    <% end %>
+  </div>
+</section>
