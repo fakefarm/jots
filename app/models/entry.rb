@@ -14,8 +14,8 @@ class Entry < ActiveRecord::Base
           where(:created_at => range).order('id DESC')
   end
 
-  def self.archives_for_user(id) # _dw should this be in User?
-    self.where(user_id: id).inject([]) { |memo, entry| memo.push entry.created_at.to_date; memo }.uniq[1..-1] || []
+  def self.archives_before_today(current_user)
+    self.archives_for_user(current_user.id)
   end
 
   def tag
@@ -28,5 +28,18 @@ class Entry < ActiveRecord::Base
     self.entry.split(' ').select do |t|
       t.exclude?('#')
     end.join(' ')
+  end
+
+private
+
+  def self.archives_for_user(id) # _dw should this be in User?
+    @archives_with_today = self.where(user_id: id).inject([]) { |memo, entry| memo.push entry.created_at.to_date; memo }
+    self.remove_today_from_archvies
+  end
+
+  def self.remove_today_from_archvies
+    @archives_with_today.select do |a|
+      a.to_date < Date.today
+    end.uniq || []
   end
 end
