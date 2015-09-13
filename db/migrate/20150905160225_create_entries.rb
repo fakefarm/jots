@@ -1,7 +1,8 @@
 class CreateEntries < ActiveRecord::Migration
   def change
     create_table :entries do |t|
-      t.string :title
+      t.string :entry
+      t.string :title_without_tag
       t.text :body
       t.integer :user_id
       t.integer :tag_id

@@ -14,19 +14,21 @@
 ActiveRecord::Schema.define(version: 20150906192041) do
 
   create_table "entries", force: :cascade do |t|
-    t.string   "title"
+    t.string   "entry"
+    t.string   "title_without_tag"
     t.text     "body"
     t.integer  "user_id"
     t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "tags", force: :cascade do |t|
     t.string   "title"
+    t.string   "title_no_hash"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
