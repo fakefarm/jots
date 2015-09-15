@@ -6,13 +6,13 @@ class JotTest < ActiveSupport::TestCase
   end
 
   test 'find the tags' do
-    @entry = Jot.new(entry: 'this is a #tagged')
-    assert_equal '#tagged', @entry.tag
+    @jot = Jot.new(jot: 'this is a #tagged')
+    assert_equal '#tagged', @jot.tag
   end
 
   test 'find the title' do
-    @entry = Jot.new(entry: 'this is a #tagged')
-    assert_equal 'this is a', @entry.title
+    @jot = Jot.new(jot: 'this is a #tagged')
+    assert_equal 'this is a', @jot.title
   end
 
   test 'lists archives_for_user' do

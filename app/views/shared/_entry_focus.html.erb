@@ -1,10 +1,10 @@
-<section class='entry-focus'>
+<section class='jot-focus'>
   <div class="cancel">x</div>
   <div class="form-contents">
-    <%= form_for(@entry) do |f| %>
+    <%= form_for(@jot) do |f| %>
       <div class="field">
         <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.text_field :entry, autofocus: true, class: 'jot-entry', :autocomplete => :off, placeholder: "What's on your mind?"  %>
+        <%= f.text_field :jot, autofocus: true, class: 'jot-jot', :autocomplete => :off, placeholder: "What's on your mind?"  %>
         <%= f.text_area :body, autofocus: true, class: 'jot-body' %>
       </div>
     <% end %>

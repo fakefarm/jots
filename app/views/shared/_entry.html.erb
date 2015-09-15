@@ -1,20 +1,20 @@
-<section class='entry'>
-  <h3 class='.title-without-tag'><%= entry.title_without_tag %>
-    <% if entry.body.try(:size) %>
+<section class='jot'>
+  <h3 class='.title-without-tag'><%= jot.title_without_tag %>
+    <% if jot.body.try(:size) %>
     <span class='detail fa fa-commenting-o'></span>
     <% end  %>
   </h3>
 
   <div class='controls'>
-    <span class='edit'><a href="#" class='edit-why' id="<%= entry.id %>">why?</a>
+    <span class='edit'><a href="#" class='edit-why' id="<%= jot.id %>">why?</a>
     </span>
-    <span class='edit delete'><%= link_to 'delete', entry, method: :delete %></span></h3>
-    <% if entry.tag_id.present? && entry.tag.present?  %>
-    <span class='tag'><%= link_to entry.tag, "/tags/#{entry.tag[1..-1]}" %></span>
+    <span class='edit delete'><%= link_to 'delete', jot, method: :delete %></span></h3>
+    <% if jot.tag_id.present? && jot.tag.present?  %>
+    <span class='tag'><%= link_to jot.tag, "/tags/#{jot.tag[1..-1]}" %></span>
     <% end %>
   </div>
-  <div class='edit-box' id="edit_box_<%= entry.id %>">
-    <%= form_for(entry) do |f| %>
+  <div class='edit-box' id="edit_box_<%= jot.id %>">
+    <%= form_for(jot) do |f| %>
     <div class="field">
       <%= f.text_area :body %>
       <%= f.submit 'save' %>

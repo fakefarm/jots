@@ -19,13 +19,13 @@ class Jot < ActiveRecord::Base
   end
 
   def tag
-    self.entry.split(' ').select do |t|
+    self.jot.split(' ').select do |t|
       t.include?('#')
     end[0]
   end
 
   def title
-    self.entry.split(' ').select do |t|
+    self.jot.split(' ').select do |t|
       t.exclude?('#')
     end.join(' ')
   end
@@ -33,6 +33,6 @@ class Jot < ActiveRecord::Base
 private
 
   def self.archives_for_user(id) # _dw should this be in User?
-    @archives_with_today = self.where(user_id: id).inject([]) { |memo, entry| memo.push entry.created_at.to_date; memo }.uniq
+    @archives_with_today = self.where(user_id: id).inject([]) { |memo, jot| memo.push jot.created_at.to_date; memo }.uniq
   end
 end

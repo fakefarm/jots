@@ -1,5 +1,5 @@
 <section class='entries'>
-  <% @tags.each do |entry| %>
-    <p><%= link_to entry.title_no_hash, "/tags/#{entry.title_no_hash}" %></p>
+  <% @tags.each do |jot| %>
+    <p><%= link_to jot.title_no_hash, "/tags/#{jot.title_no_hash}" %></p>
   <% end %>
 </section>
