@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :entries
 
   # def self.archives # _dw Should I try this? IF so, how?
-  #   Entry.archives_for_user(User.id)
+  #   Jot.archives_for_user(User.id)
   # end
 
 end

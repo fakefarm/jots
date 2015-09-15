@@ -1,4 +1,4 @@
-class Entry < ActiveRecord::Base
+class Jot < ActiveRecord::Base
   belongs_to :tag
   belongs_to :user
   attr_accessor :requester
@@ -10,7 +10,7 @@ class Entry < ActiveRecord::Base
   def self.today_for_user(id) # _dw should this be in User?
     today = Date.today
     range = (today.beginning_of_day)..(today.end_of_day)
-    Entry.where(user_id: id).
+    Jot.where(user_id: id).
           where(:created_at => range).order('id DESC')
   end
 

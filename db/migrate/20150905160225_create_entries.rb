@@ -1,4 +1,4 @@
-class CreateEntries < ActiveRecord::Migration
+class CreateJots < ActiveRecord::Migration
   def change
     create_table :entries do |t|
       t.string :entry

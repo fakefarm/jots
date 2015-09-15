@@ -11,7 +11,7 @@ class TagsController < ApplicationController
   # GET /tags/1.json
   def show
     tag = Tag.where(title_no_hash: params[:id]).first.id
-    @presenter = Entry.where(tag_id: tag, user_id: current_user.id)
+    @presenter = Jot.where(tag_id: tag, user_id: current_user.id)
   end
 
   # GET /tags/new

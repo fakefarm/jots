@@ -1,8 +1,8 @@
-class EntriesController < ApplicationController
+class JotsController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   def index
-    @entries = Entry.where(user_id: current_user.id).
+    @entries = Jot.where(user_id: current_user.id).
                      where("DATE(created_at) = ?", Date.today).
                      reverse
   end
@@ -24,7 +24,7 @@ class EntriesController < ApplicationController
   5. save
 =end
 
-    @entry = Entry.new(entry_params)
+    @entry = Jot.new(entry_params)
     @entry.tag_id = AssignTag.new(@entry.tag, current_user.id).id
     @entry.title_without_tag = @entry.title
 
@@ -32,7 +32,7 @@ class EntriesController < ApplicationController
       if @entry.save
         format.html do
          redirect_to URI(request.referer).path,
-          notice: 'Entry was successfully created.'
+          notice: 'Jot was successfully created.'
        end
         format.json { render :show, status: :created, location: @entry }
       else
@@ -45,7 +45,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to entries_path, notice: 'Entry was successfully updated.' }
+        format.html { redirect_to entries_path, notice: 'Jot was successfully updated.' }
         format.json { render :show, status: :ok, location: @entry }
       else
         format.html { render :edit }
@@ -57,14 +57,14 @@ class EntriesController < ApplicationController
   def destroy
     @entry.destroy
     respond_to do |format|
-      format.html { redirect_to entries_url, notice: 'Entry was successfully destroyed.' }
+      format.html { redirect_to entries_url, notice: 'Jot was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     def set_entry
-      @entry = Entry.find(params[:id])
+      @entry = Jot.find(params[:id])
     end
 
     def entry_params

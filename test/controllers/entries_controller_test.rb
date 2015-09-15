@@ -1,5 +1,5 @@
 require 'test_helper'
-class EntriesControllerTest < ActionController::TestCase
+class JotsControllerTest < ActionController::TestCase
   setup do
     sign_in :user, users(:one)
     @entry = entries(:today_one)
@@ -14,7 +14,7 @@ class EntriesControllerTest < ActionController::TestCase
 
   test "should create entry" do
     skip("I'm using the controller but not the views - how should I test this?")
-    assert_difference('Entry.count') do
+    assert_difference('Jot.count') do
       post :create, entry: { body: @entry.body, entry: @entry.entry, user_id: @entry.user_id, title_without_tag: @entry.title_without_tag }
     end
     assert_redirected_to entries_path
@@ -22,7 +22,7 @@ class EntriesControllerTest < ActionController::TestCase
 
   test "should destroy entry" do
     skip("I'm using the controller but not the views - how should I test this?")
-    assert_difference('Entry.count', -1) do
+    assert_difference('Jot.count', -1) do
       delete :destroy, id: @entry
     end
 

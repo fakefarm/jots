@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :side_bar_nav
 
   def create_entry
-    @entry = Entry.new
+    @entry = Jot.new
   end
 
   def side_bar_nav
@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
 
   def stats
     if current_user
-      @entry_count = Entry.where(user_id: current_user.id).count
-      @days = Entry.where(user_id: current_user.id).
+      @entry_count = Jot.where(user_id: current_user.id).count
+      @days = Jot.where(user_id: current_user.id).
                         inject([]) { |memo, entry| memo.push entry.created_at.to_date; memo }.uniq.count
       @tags = Tag.where(user_id: current_user.id).count
     end

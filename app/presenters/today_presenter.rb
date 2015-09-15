@@ -6,6 +6,6 @@ class TodayPresenter
   end
 
   def entries
-    Entry.today_for_user(current_user.id)
+    Jot.today_for_user(current_user.id)
   end
 end

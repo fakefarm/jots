@@ -7,10 +7,10 @@ class ArchivePresenter
   end
 
   def entries
-    Entry.archives_before_today(current_user.id)
+    Jot.archives_before_today(current_user.id)
   end
 
   def entries_for_day
-    @entries = Entry.where(user_id: current_user.id).where("DATE(created_at) = ?", @date).reverse
+    @entries = Jot.where(user_id: current_user.id).where("DATE(created_at) = ?", @date).reverse
   end
 end
