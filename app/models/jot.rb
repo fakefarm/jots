@@ -19,13 +19,19 @@ class Jot < ActiveRecord::Base
   end
 
   def tag
-    self.jot.split(' ').select do |t|
+    self.title.split(' ').select do |t|
       t.include?('#')
     end[0]
   end
 
-  def title
-    self.jot.split(' ').select do |t|
+  def tag?
+    !!self.title.split(' ').select do |t|
+      t.include?('#')
+    end[0]
+  end
+
+  def remove_tag_from_title
+    self.title.split(' ').select do |t|
       t.exclude?('#')
     end.join(' ')
   end

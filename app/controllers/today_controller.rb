@@ -1,5 +1,5 @@
 class TodayController < ApplicationController
   def index
-    @presenter = TodayPresenter.new(current_user)
+    @presenter = Jot.today_for_user(current_user.id)
   end
 end

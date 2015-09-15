@@ -25,8 +25,10 @@ class JotsController < ApplicationController
 =end
 
     @jot = Jot.new(jot_params)
-    @jot.tag_id = AssignTag.new(@jot.tag, current_user.id).id
-    @jot.title_without_tag = @jot.title
+    if @jot.tag?
+      @jot.tag_id = AssignTag.new(@jot.tag, current_user.id).id
+    end
+    @jot.title_without_tag = @jot.remove_tag_from_title
 
     respond_to do |format|
       if @jot.save
@@ -68,6 +70,6 @@ class JotsController < ApplicationController
     end
 
     def jot_params
-      params.require(:jot).permit(:jot, :body, :user_id)
+      params.require(:jot).permit(:title, :body, :user_id)
     end
 end

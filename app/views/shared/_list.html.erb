@@ -1,5 +1,5 @@
 <section class='jots'>
-  <% @presenter.jots.each do |jot| %>
+  <% @presenter.each do |jot| %>
     <%= render 'shared/jot',  jot: jot %>
   <% end %>
 </section>
