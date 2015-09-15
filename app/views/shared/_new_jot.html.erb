@@ -1,7 +1,7 @@
 <%= form_for(@jot) do |f| %>
   <div class="field">
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.text_area :jot, autofocus: true, class: 'jot-jot', :autocomplete => :off  %>
+    <%= f.text_area :title, autofocus: true, class: 'jot-jot', :autocomplete => :off  %>
     <%= f.submit 'jot', class: 'jot-submit' %>
   </div>
 <% end %>
