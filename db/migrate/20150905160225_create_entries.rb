@@ -1,6 +1,6 @@
 class CreateJots < ActiveRecord::Migration
   def change
-    create_table :entries do |t|
+    create_table :jots do |t|
       t.string :jot
       t.string :title_without_tag
       t.text :body

@@ -10,7 +10,7 @@ class ApplicationPresenter
     Jot.today_for_user(current_user.id)
   end
 
-  def tagged_entries
+  def tagged_jots
     tag = Tag.where(title: "#" + @tag).first.id
     Jot.where(tag_id: tag, user_id: current_user.id)
   end

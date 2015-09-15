@@ -5,7 +5,7 @@ class TodayPresenter
     @current_user = current_user
   end
 
-  def entries
+  def jots
     Jot.today_for_user(current_user.id)
   end
 end

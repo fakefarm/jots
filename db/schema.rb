@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150906192041) do
 
-  create_table "entries", force: :cascade do |t|
+  create_table "jots", force: :cascade do |t|
     t.string   "jot"
     t.string   "title_without_tag"
     t.text     "body"

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :entries
+  has_many :jots
 
   # def self.archives # _dw Should I try this? IF so, how?
   #   Jot.archives_for_user(User.id)

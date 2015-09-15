@@ -2,7 +2,7 @@ class JotsController < ApplicationController
   before_action :set_jot, only: [:show, :edit, :update, :destroy]
 
   def index
-    @entries = Jot.where(user_id: current_user.id).
+    @jots = Jot.where(user_id: current_user.id).
                      where("DATE(created_at) = ?", Date.today).
                      reverse
   end
@@ -45,7 +45,7 @@ class JotsController < ApplicationController
   def update
     respond_to do |format|
       if @jot.update(jot_params)
-        format.html { redirect_to entries_path, notice: 'Jot was successfully updated.' }
+        format.html { redirect_to jots_path, notice: 'Jot was successfully updated.' }
         format.json { render :show, status: :ok, location: @jot }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class JotsController < ApplicationController
   def destroy
     @jot.destroy
     respond_to do |format|
-      format.html { redirect_to entries_url, notice: 'Jot was successfully destroyed.' }
+      format.html { redirect_to jots_url, notice: 'Jot was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

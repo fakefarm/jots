@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
-  has_many :entries
+  has_many :jots
   validates :title, :user_id, presence: true
 
   def self.list_for_user(id)

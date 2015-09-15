@@ -5,12 +5,12 @@ class ArchivesPresenterTest < ActionController::TestCase
     @current_user = users(:one)
   end
 
-  test 'it gets list of entries' do
-    assert_equal 2, ArchivePresenter.new(@current_user).entries.count
+  test 'it gets list of jots' do
+    assert_equal 2, ArchivePresenter.new(@current_user).jots.count
   end
 
-  test 'it gets the entries of a date' do
+  test 'it gets the jots of a date' do
     skip("why are these dates not matching to fixture?")
-    assert_equal 1, ArchivePresenter.new(@current_user, 2.days.ago).entries_for_day.count
+    assert_equal 1, ArchivePresenter.new(@current_user, 2.days.ago).jots_for_day.count
   end
 end

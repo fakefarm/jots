@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/welcome' => 'static#index'
 
-  resources :entries
+  resources :jots
   resources :today, only: :index
   resources :tags
   resources :searches, only: [:index, :show]
