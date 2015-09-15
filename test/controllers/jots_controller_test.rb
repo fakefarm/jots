@@ -15,7 +15,7 @@ class JotsControllerTest < ActionController::TestCase
   test "should create jot" do
     skip("I'm using the controller but not the views - how should I test this?")
     assert_difference('Jot.count') do
-      post :create, jot: { body: @jot.body, jot: @jot.jot, user_id: @jot.user_id, title_without_tag: @jot.title_without_tag }
+      post :create, jot: { body: @jot.body, jot: @jot.title, user_id: @jot.user_id, title_without_tag: @jot.title_without_tag }
     end
     assert_redirected_to jots_path
   end
