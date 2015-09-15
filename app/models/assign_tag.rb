@@ -13,6 +13,6 @@ class AssignTag
     #  _dw I don't like that this class knows so much about Tag
     # mock this out maybe...
     # require 'pry'; binding.pry
-    Tag.find_or_create_by(title: @entry_tag, user_id: @current_user_id)
+    Tag.find_or_create_by(title: @entry_tag, user_id: @current_user_id, title_no_hash: @entry_tag[1..-1])
   end
 end
