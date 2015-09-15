@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :entries
   resources :today, only: :index
-  resources :tags, only: :show
+  resources :tags
   resources :searches, only: [:index, :show]
   resources :archives, only: [:index, :show]
 end
