@@ -5,5 +5,5 @@ one:
   user_id: 1
 
 two:
-  title: MyString
+  title: AnotherString
   user_id: 1

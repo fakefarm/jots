@@ -4,14 +4,14 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @Entries = Entry.where(tag: params[:tags])
+    @tags = Tag.where(user_id: current_user.id)
   end
 
   # GET /tags/1
   # GET /tags/1.json
   def show
-    tag = Tag.where(title: "#" + params[:id]).first.id
-    @entries = Entry.where(tag_id: tag)
+    tag = Tag.where(title_no_hash: params[:id]).first.id
+    @presenter = Entry.where(tag_id: tag, user_id: current_user.id)
   end
 
   # GET /tags/new

@@ -11,6 +11,7 @@
 <body>
   <%= render 'shared/authentication' %>
   <section class='l-container'>
+    <%#= render 'shared/entry_focus' %>
     <section class='l-content main-content'>
       <div class="line-decoration">
         <%= yield %>
@@ -18,8 +19,9 @@
     </section>
     <section class='l-sidebar'>
       <div class="nav-controls">
-        <%= render 'shared/new_jot' %>
-        <%= render 'shared/search' %>
+        <%= render 'shared/new_entry' %>
+        <!-- fix search -->
+        <%#= render 'shared/search' %>
         <%= render 'shared/stats' %>
       </div>
       <%= render 'shared/nav' %>

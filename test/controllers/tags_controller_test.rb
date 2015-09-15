@@ -3,6 +3,7 @@ require 'test_helper'
 class TagsControllerTest < ActionController::TestCase
   setup do
     @tag = tags(:one)
+    sign_in :user, users(:one)
   end
 
   test "should get index" do

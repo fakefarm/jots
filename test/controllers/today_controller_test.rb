@@ -7,7 +7,7 @@ class TodayControllerTest < ActionController::TestCase
 
   test 'get #index' do
     get :index
-    assert_not_nil assigns(:today_presenter)
+    assert_not_nil assigns(:presenter)
     assert_response :success
   end
 end

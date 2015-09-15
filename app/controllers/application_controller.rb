@@ -12,8 +12,7 @@ class ApplicationController < ActionController::Base
 
   def side_bar_nav
     if current_user
-      @archives = Entry.where(user_id: current_user.id).
-                        inject([]) { |memo, entry| memo.push entry.created_at.to_date; memo }.uniq
+      @app_presenter = ApplicationPresenter.new(current_user)
       @tag_list = Tag.where(user_id: current_user.id)
     end
   end

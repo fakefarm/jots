@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
 
   def show
     search = params[:id].gsub('-', ' ')
-    @entries = Entry.where(user_id: current_user.id).where("title LIKE \"%#{search}%\"")
+    @entries = Entry.where(user_id: current_user.id).where("title_without_tag LIKE \"%#{search}%\"")
     render :index
   end
 end
