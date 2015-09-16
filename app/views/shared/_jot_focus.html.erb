@@ -1,11 +1,26 @@
-<section class='jot-focus'>
-  <div class="cancel">x</div>
-  <div class="form-contents">
+<section class='jot-focus new tips'>
+  <div class="modal-controls">
+    <span class="close">close</span>
+  </div>
+  <div class="jot-form">
     <%= form_for(@jot) do |f| %>
       <div class="field">
         <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.text_field :jot, autofocus: true, class: 'jot-jot', :autocomplete => :off, placeholder: "What's on your mind?"  %>
+        <%= f.text_field :title, autofocus: true, class: 'title', :autocomplete => :off, placeholder: "What's on your mind?"  %>
+        <div class='jot-tips'>
+          <span>hints: </span>
+          <span>'enter' to save</span>
+          <span>'tab' to add a body</span>
+          <span>tags #</span>
+          <span>reminders @</span>
+        </div>
+        <section class='tags'>
+          <span class='tag'>#one</span>
+          <span class='tag'>#two</span>
+          <span class='tag'>#three</span>
+        </section>
         <%= f.text_area :body, autofocus: true, class: 'jot-body' %>
+        <%= f.submit 'save', class: 'save-button' %>
       </div>
     <% end %>
   </div>
