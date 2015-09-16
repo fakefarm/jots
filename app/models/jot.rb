@@ -7,11 +7,20 @@ class Jot < ActiveRecord::Base
     where("title_without_tag like ?", "%#{query}%")
   end
 
-  def self.today_for_user(id) # _dw should this be in User?
+  def self.today_for_user(current_user) # _dw should this be in User?
     today = Date.today
     range = (today.beginning_of_day)..(today.end_of_day)
-    Jot.where(user_id: id).
+    Jot.where(user_id: current_user.id).
           where(:created_at => range).order('id DESC')
+  end
+
+  def self.count(current_user)
+    Jot.where(user_id: current_user.id).count
+  end
+
+  def self.days(current_user)
+    Jot.where(user_id: current_user.id).
+        inject([]) { |memo, jot| memo.push jot.created_at.to_date; memo }.uniq.count
   end
 
   def self.archives_before_today(current_user)
@@ -38,7 +47,7 @@ class Jot < ActiveRecord::Base
 
 private
 
-  def self.archives_for_user(id) # _dw should this be in User?
-    @archives_with_today = self.where(user_id: id).inject([]) { |memo, jot| memo.push jot.created_at.to_date; memo }.uniq
+  def self.archives_for_user(current_user) # _dw should this be in User?
+    @archives_with_today = self.where(user_id: current_user.id).inject([]) { |memo, jot| memo.push jot.created_at.to_date; memo }.uniq
   end
 end
