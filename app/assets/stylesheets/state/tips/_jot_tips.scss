@@ -1,0 +1,14 @@
+.tips {
+  .jot-tips {
+      display: block;
+      @include row();
+      position: relative;
+      top: -10px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.5em;
+      span {
+        @include shift(1);
+        &:first-child { @include shift(0); }
+      }
+    }
+}

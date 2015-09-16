@@ -1,38 +1,37 @@
 .jot-focus {
-  border-radius: 3px;
-  border: 1px solid #545454;
-  background: rgba(25,25,25,0.98);
   @include media($medium-screen) {
     position: absolute;
-    top: 10px;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    // background-image: linear-gradient(240deg, #10371D, #1A2237);
+    // background-image: linear-gradient(-90deg, #4B3B5E, #A33E46);
+    // background-image: linear-gradient(140deg, #4B3B5E, #A33E46);
+    background-image: linear-gradient(220deg, #0B5044, #093453);
+    color: white;
+
   }
-  .cancel {
+
+  .modal-controls {
     @include media($medium-screen) {
-      font-size: 3em;
-      color: white;
-      position: absolute;
-      top: 10px;
-      right:30px;
+      text-align: right;
+      font-size: 2em;
+      padding: 1em;
       cursor: pointer;
+      @include transition(all 300ms ease-in-out);
       &:hover {
-        &::before{
-          @include transition(all, 300ms, ease-in-out);
-          content: 'cancel';
-          color:#666666;
-          font-size: 0.5em;
-          margin-right: 10px;
-        }
+        @include transition(all 300ms ease-in-out);
+        background: rgba(55,55,55,0.5);
       }
     }
   }
-  .form-contents {
+
+  .jot-form {
     padding: 2em;
     font-size: 2em;
-    .jot-jot {
-      margin-top: 5em;
+    margin-top: 3em;
+    .title {
       position: relative;
       width: 100%;
       background: rgba(20,20,20,0.0);
@@ -42,22 +41,13 @@
       font-weight: 300;
       box-shadow: none;
       color: #66FFFF;
-      &.with-body {
-        margin-top: 0;
-      }
-    }
-    .jot-body {
-      position: relative;
-      width: 100%;
-      background: rgba(255,255,255,0.6);
-      border: none;
-      box-shadow: none;
-      padding: 1.5em;
-      color: #333333;
-      display: none;
-      &.active {
-        display: block;
-      }
     }
   }
+  .jot-tips,
+  .jot-body,
+  .save-button,
+  .tags {
+    display: none;
+  }
 }
+

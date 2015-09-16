@@ -10,6 +10,14 @@
 @import 'modules/welcome';
 @import 'modules/jot_focus';
 
+@import 'state/jot_focus/new';
+@import 'state/jot_focus/active';
+@import 'state/jot_focus/tags';
+@import 'state/jot_focus/body';
+
+@import 'state/tips/jot_tips';
+
+
 // temporary
 
 .field {
@@ -79,3 +87,4 @@ body {
   margin: 0;
   background: #EDF2ED;
 }
+
