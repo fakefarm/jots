@@ -16,18 +16,12 @@ class JotsController < ApplicationController
   end
 
   def create
-=begin
-  1. new jot
-  2. get my tags
-  3. find the tag
-  4. add tag id to jot
-  5. save
-=end
-
     @jot = Jot.new(jot_params)
+
     if @jot.tag?
       @jot.tag_id = AssignTag.new(@jot.tag, current_user.id).id
     end
+
     @jot.title_without_tag = @jot.remove_tag_from_title
 
     respond_to do |format|
@@ -70,6 +64,6 @@ class JotsController < ApplicationController
     end
 
     def jot_params
-      params.require(:jot).permit(:title, :body, :user_id)
+      params.require(:jot).permit(:title, :body, :user_id, :name, :tag_id)
     end
 end
