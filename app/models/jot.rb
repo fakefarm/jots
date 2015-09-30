@@ -18,6 +18,10 @@ class Jot < ActiveRecord::Base
     Jot.where(user_id: current_user.id).count
   end
 
+  def self.count(current_user)
+    Jot.where(user_id: current_user.id).count
+  end
+
   def self.days(current_user)
     Jot.where(user_id: current_user.id).
         inject([]) { |memo, jot| memo.push jot.created_at.to_date; memo }.uniq.count

@@ -4,13 +4,16 @@
   @include media($medium-screen) {
     padding: 0.5em 1.25em;
     margin-bottom: 1em;
-    border: 1px solid rgb(213, 213, 213);
     border-radius: 3px;
   }
-  .count {
-    @include media($medium-screen) {
-      font-size: 1.5em;
-      @include span-columns(3);
-    }
+}
+
+.stats__count {
+  @include media($medium-screen) {
+    font-size: 1.5em;
+    @include span-columns(12);
+    text-align: right;
+    margin-top: 1em;
+    &:first-child { margin-top: 0; }
   }
 }

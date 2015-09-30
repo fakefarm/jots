@@ -1,6 +1,6 @@
-<section class='jot-focus new tips'>
+<section class='jot-focus body' id='jot-focus'>
   <div class="modal-controls">
-    <span class="close">close</span>
+    <span class="close" id='jot-close-btn'>x</span>
   </div>
   <div class="jot-form">
     <%= form_for(@jot) do |f| %>
@@ -19,7 +19,7 @@
           <span class='tag'>#two</span>
           <span class='tag'>#three</span>
         </section>
-        <%= f.text_area :body, autofocus: true, class: 'jot-body' %>
+        <%= f.text_area :body, autofocus: true, class: 'jot-body', placeholder: '|' %>
         <%= f.submit 'save', class: 'save-button' %>
       </div>
     <% end %>

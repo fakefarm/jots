@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :jots
+  has_many :tags
 
   # def self.archives # _dw Should I try this? IF so, how?
   #   Jot.archives_for_user(User.id)

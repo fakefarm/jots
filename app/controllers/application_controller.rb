@@ -11,9 +11,13 @@ class ApplicationController < ActionController::Base
 
   def side_bar
     if current_user
-      @jot_count = Jot.count(current_user)
+      @jot_count = current_user.jots.count
+
+      # Basic Rails Best Practices.
+
+      # @jot_count = Jot.count(current_user)
       @days = Jot.days(current_user)
-      @tags = Tag.count(current_user)
+      @tags = current_user.tags.count
       @tag_list = Tag.list_for_user(current_user)
       @archives = Jot.archives_before_today(current_user)
     end

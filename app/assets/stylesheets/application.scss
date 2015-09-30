@@ -4,7 +4,6 @@
 @import 'layout';
 @import 'modules/authentication';
 @import 'modules/main_content';
-@import 'modules/list';
 @import 'modules/jot';
 @import 'modules/stats';
 @import 'modules/welcome';
@@ -20,71 +19,145 @@
 
 // temporary
 
-.field {
-  @include row;
+// .field {
+//   @include row;
 
-  .jot-jot {
-    @include span-columns(9);
-  }
+//   .jot-jot {
+//     @include span-columns(9);
+//   }
 
-  .jot-submit {
-    @include span-columns(3);
-  }
-}
+//   .jot-submit {
+//     @include span-columns(3);
+//   }
+// }
 
-h3 {
-  font-weight: 200;
-  padding: 0.25em 0;
-  color: #666666;
-  span a {
-  color: #FF6666;
-  }
-  .detail {
-    font-size: 0.6em;
-  }
-  .edit {
-    font-size: 0.5em;
-    color: #666666;
-    margin-left: 1em;
-  }
-  .controls {
-    display: none;
-  }
-  &:hover > .controls{
-    display: inline;
-  }
-}
+// h3 {
+//   font-weight: 200;
+//   padding: 0.25em 0;
+//   color: #666666;
+//   span a {
+//   color: #FF6666;
+//   }
+//   .detail {
+//     font-size: 0.6em;
+//   }
+//   .edit {
+//     font-size: 0.5em;
+//     color: #666666;
+//     margin-left: 1em;
+//   }
+//   .controls {
+//     display: none;
+//   }
+//   &:hover > .controls{
+//     display: inline;
+//   }
+// }
 
-.edit-box {
-  display: none;
-  .field { @include row; }
-  textarea {
-    @include media($medium-screen) {
-      position: absolute;
-      padding: 5em;
-      left: 10px;
-      top: 10px;
-      bottom: 10px;
-      height: 97%;
-      line-height: 25px;
-      font-size: 1.5em;
-      line-height: 43px;
-      font-weight: 400;
-      color: $dark-gray;
-      right: 10px;
-      width: 98%;
-      font-size: 1.3em;
-    }
-  }
-  input[type=submit] {
-    @include span-columns(3);
-  }
+// .edit-box {
+//   display: none;
+//   .field { @include row; }
+//   textarea {
+//     @include media($medium-screen) {
+//       position: absolute;
+//       padding: 5em;
+//       left: 10px;
+//       top: 10px;
+//       bottom: 10px;
+//       height: 97%;
+//       line-height: 25px;
+//       font-size: 1.5em;
+//       line-height: 43px;
+//       font-weight: 400;
+//       color: $dark-gray;
+//       right: 10px;
+//       width: 98%;
+//       font-size: 1.3em;
+//     }
+//   }
+//   input[type=submit] {
+//     @include span-columns(3);
+//   }
 
-}
+// }
 
 body {
   padding: 0;
   margin: 0;
-  background: #EDF2ED;
+  background-image: linear-gradient(-90deg, #9029FF, #D6292C);
 }
 
+.page {
+  @include row();
+  .page__title {
+    color: rgba(255,255,255,0.5);
+    font-size: 1em;
+    @include media($medium-screen) {
+      @include span-columns(1);
+    }
+  }
+  .page__list {
+    @include media($medium-screen) {
+      @include span-columns(9);
+    }
+  }
+  .page__stats {
+    @include media($medium-screen) {
+      @include span-columns(2);
+    }
+  }
+}
+
+.control {
+  @include span-columns(1.5);
+  height: inherit;
+  background: #373737;
+  padding: 1em;
+}
+
+.control__actions {
+  cursor: pointer;
+  > li {
+    color: white;
+    padding: 0.25em;
+    margin: 0.5em 0;
+    text-align: center;
+    @include transition(all 130ms ease-in-out);
+    &:hover {
+      @include transition(all 130ms ease-in-out);
+      color: black;
+      background: #eee;
+    }
+  }
+}
+
+// .sidebar {
+//   background: #4C4C4C;
+//   min-height: 2000px;
+//   padding: 3em;
+//   .tip { display: none; }
+//   .jot-input {
+//     background: rgba(0,0,0,0);
+//     border: none;
+//     border-bottom: 2px solid #666666;
+//     box-shadow: none;
+//     border-radius: 0;
+//     color: white;
+//     padding: 0.5em;
+//     font-size: 1.5em;
+//     &:focus {
+//     border-color: none;
+//     border-bottom: 3px solid #FFFF66;
+//     box-shadow: none;
+//     outline: none;
+//       &+ .tip {
+//         display: block;
+//       }
+//     }
+//   }
+// }
+
+// input::-webkit-input-placeholder {
+//    color: #CCCCCC;
+//    // text-transform: uppercase;
+// }

@@ -9,23 +9,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'shared/authentication' %>
+  <%#= render 'shared/authentication' %>
   <section class='l-container'>
     <%= render 'shared/jot_focus' %>
-    <section class='l-content main-content'>
-      <div class="line-decoration">
+    <section class='main-content'>
         <%= yield %>
-      </div>
     </section>
-    <section class='l-sidebar'>
-      <div class="nav-controls">
-        <%#= render 'shared/new_jot' %>
-        <!-- fix search -->
-        <%#= render 'shared/search' %>
-        <%#= render 'shared/stats' %>
-      </div>
-      <%#= render 'shared/nav' %>
-    </section>
+    <nav class='control'>
+      <ul class='control__actions'>
+        <li id='new-jot-btn'>jot</li>
+        <li>today</li>
+        <li>archives</li>
+        <li>tags</li>
+        <li>search</li>
+      </ul>
+    </nav>
   </section>
 </body>
 </html>

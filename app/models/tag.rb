@@ -1,5 +1,6 @@
 class Tag < ActiveRecord::Base
   has_many :jots
+  belongs_to :user
   validates :title, :user_id, presence: true
 
   def self.count(current_user)

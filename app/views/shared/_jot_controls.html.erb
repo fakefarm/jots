@@ -1,0 +1,16 @@
+<div class='controls'>
+  <span class='edit'><a href="#" class='edit-why' id="<%= jot.id %>">why?</a>
+  </span>
+  <span class='edit delete'><%= link_to 'delete', jot, method: :delete %></span></h3>
+  <% if jot.tag_id.present? && jot.tag.present?  %>
+  <span class='tag'><%= link_to jot.tag, "/tags/#{jot.tag[1..-1]}" %></span>
+  <% end %>
+</div>
+<div class='edit-box' id="edit_box_<%= jot.id %>">
+  <%= form_for(jot) do |f| %>
+  <div class="field">
+    <%= f.text_area :body %>
+    <%= f.submit 'save' %>
+  </div>
+  <% end %>
+</div>
