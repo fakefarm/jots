@@ -1,5 +1,6 @@
 .jot-focus {
   display: none;
+  z-index: 100;
   @include media($medium-screen) {
     position: absolute;
     top: 0px;
