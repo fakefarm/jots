@@ -1,3 +1,11 @@
-<% @presenter.each do |archive| %>
-  <p><%= link_to archive, archive_path(archive) %></p>
-<% end %>
+<section class='today page'>
+  <h2 class='page__title'>Archives</h2>
+  <section class='page__list'>
+    <% @archives.each do |archive| %>
+      <h3 class='jot__title'><%= link_to archive.title, archive_path(archive) %></h3>
+    <% end %>
+  </section>
+  <section class='page__stats'>
+    <%= render 'shared/stats' %>
+  </section>
+</section>
