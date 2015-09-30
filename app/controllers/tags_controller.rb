@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.where(user_id: current_user.id)
+    @tag_list = Tag.where(user_id: current_user.id)
   end
 
   # GET /tags/1

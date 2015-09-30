@@ -1,5 +1,11 @@
-<section class='jots'>
-  <% @tags.each do |jot| %>
-    <p><%= link_to jot.title_no_hash, "/tags/#{jot.title_no_hash}" %></p>
-  <% end %>
+<section class='today page'>
+  <h2 class='page__title'>Tags</h2>
+  <section class='page__list'>
+    <% @tag_list.each do |jot| %>
+      <h3 class='jot__title'><%= link_to jot.title_no_hash, "/tags/#{jot.title_no_hash}" %></h3>
+    <% end %>
+  </section>
+  <section class='page__stats'>
+    <%= render 'shared/stats' %>
+  </section>
 </section>
