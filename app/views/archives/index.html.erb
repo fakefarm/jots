@@ -1,8 +1,13 @@
 <section class='today page'>
   <h2 class='page__title'>Archives</h2>
   <section class='page__list'>
-    <% @archives.each do |archive| %>
-      <h3 class='jot__title'><%= link_to archive.title, archive_path(archive) %></h3>
+    <% @archives.each do |date, jots| %>
+      <h2 class='archive-title'>
+        <%= date %>
+      </h2>
+      <% jots.each do |jot|  %>
+        <h3 class='jot__title'><%= link_to jot.title %></h3>
+      <% end %>
     <% end %>
   </section>
   <section class='page__stats'>
