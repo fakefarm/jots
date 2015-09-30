@@ -1,8 +1,13 @@
 <section class='today page'>
   <h2 class='page__title'>Tags</h2>
   <section class='page__list'>
-    <% @tag_list.each do |jot| %>
-      <h3 class='jot__title'><%= link_to jot.title_no_hash, "/tags/#{jot.title_no_hash}" %></h3>
+    <% @tag_list.each do |tag, jots| %>
+      <h2 class='archive-title'>
+        <%= tag[1..-1] %>
+      </h2>
+      <% jots.each do |jot|  %>
+        <h3 class='jot__title'><%= link_to jot.title %></h3>
+      <% end %>
     <% end %>
   </section>
   <section class='page__stats'>

@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tag_list = Tag.where(user_id: current_user.id)
+    @tag_list = tags_by_day
   end
 
   # GET /tags/1
@@ -63,14 +63,18 @@ class TagsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tag
-      @tag = Tag.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tag
+    @tag = Tag.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tag_params
-      params.require(:tag).permit(:title, :user_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def tag_params
+    params.require(:tag).permit(:title, :user_id)
+  end
+
+  def tags_by_day
+    current_user.jots.select {|j| j.tag.present? }.group_by {|j| j.tag }
+  end
 end
