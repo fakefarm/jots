@@ -1,7 +1,11 @@
 <section class='today page'>
   <h2 class='page__title'>Today</h2>
   <section class='page__list'>
-    <%= render 'shared/list' %>
+    <% if @presenter.empty? %>
+      <%= render 'shared/new_jot' %>
+    <% else %>
+      <%= render 'shared/list' %>
+    <% end %>
   </section>
   <section class='page__stats'>
     <%= render 'shared/stats' %>

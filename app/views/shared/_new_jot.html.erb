@@ -1,10 +1,12 @@
-<%= form_for(@jot) do |f| %>
-  <div class="field">
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.text_field :title, class: 'jot-input', :autocomplete => :off, placeholder: "what's on your mind?", id: 'new-jot' %>
-    <%#= f.submit 'jot', class: 'jot-submit' %>
-    <div class="tip">
-      (hit enter to save)
+<section class='new-jot'>
+  <%= form_for(@jot) do |f| %>
+    <div class="new-jot__field">
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.text_field :title, autofocus: true, class: 'new-jot__jot-input', :autocomplete => :off, placeholder: "what's on your mind?", id: 'new-jot__jot-input' %>
+      <%#= f.submit 'jot', class: 'jot-submit' %>
+      <div class="new-jot__tip" id="new-jot__tip">
+        enter to save
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</section>
