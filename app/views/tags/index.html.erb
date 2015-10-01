@@ -1,9 +1,9 @@
-<section class='today page'>
+<section class='page'>
   <h2 class='page__title'>Tags</h2>
   <section class='page__list'>
     <% @tag_list.each do |tag, jots| %>
       <h2 class='archive-title'>
-        <%= tag[1..-1] %>
+        <%= link_to tag[1..-1], "/tags/#{tag[1..-1]}" %>
       </h2>
       <% jots.each do |jot|  %>
         <h3 class='jot__title'><%= link_to jot.title_without_tag %></h3>
