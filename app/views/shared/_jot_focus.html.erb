@@ -6,7 +6,7 @@
     <%= form_for(@jot) do |f| %>
       <div class="field">
         <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.text_field :title, autofocus: true, class: 'title', :autocomplete => :off, placeholder: "What's on your mind?"  %>
+        <%= f.text_field :title, autofocus: true, class: 'title', :autocomplete => :off, placeholder: "What's on your mind?", id: 'jot-title'  %>
         <div class='jot-tips'>
           <span>hints: </span>
           <span>'enter' to save</span>
@@ -19,7 +19,7 @@
           <span class='tag'>#two</span>
           <span class='tag'>#three</span>
         </section>
-        <%= f.text_area :body, autofocus: true, class: 'jot-body', placeholder: '|' %>
+        <%= f.text_area :body, autofocus: true, class: 'jot-body', placeholder: '(body)' %>
         <%= f.submit 'save', class: 'save-button' %>
       </div>
     <% end %>
