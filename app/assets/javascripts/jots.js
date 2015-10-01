@@ -18,6 +18,18 @@ $(document).ready(function() {
     if (e.keyCode == 27)  $('#jot-focus').slideUp('400');
   });
 
+  $(document).keydown(function(e) {
+    if( $('#jot-focus').css('display') === "none") {
+      if (e.keyCode == 84) {
+        window.location = '/today';
+      } else if (e.keyCode == 65 ){
+        window.location = '/archives';
+      } else if (e.keyCode == 71 ){
+        window.location = '/tags';
+      }
+    }
+  });
+
    $('#new-jot-btn').click(function() {
     $('#jot-focus').slideDown('400');
     $('#jot-title').focus();

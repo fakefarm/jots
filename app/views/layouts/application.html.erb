@@ -17,10 +17,10 @@
     </section>
     <nav class='control'>
       <ul class='control__actions'>
-        <li id='new-jot-btn'>jot <span class='control__j-shortcut'>j</span></li>
-        <li><%= link_to 'tags', tags_path %></li>
-        <li><%= link_to 'archives', archives_path %></li>
-        <li><%= link_to 'today', today_index_path %></li>
+        <li id='new-jot-btn'>jot <span class='control__shortcut'>j</span></li>
+        <li><%= link_to 'today', today_index_path %><span class='control__shortcut'>t</span></li>
+        <li><%= link_to 'tags', tags_path %><span class='control__shortcut'>g</span></li>
+        <li><%= link_to 'archives', archives_path %><span class='control__shortcut'>a</span></li>
       </ul>
     </nav>
   </section>
