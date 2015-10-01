@@ -74,6 +74,18 @@ body {
   }
 }
 
+.control__j-shortcut {
+  background: #FFF6C1;
+  position: relative;
+  top: -2px;
+  color: rgb(0, 0, 0);
+  padding: 0.025em 0.5em 0.12em;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 0.5em;
+  margin-left: 0.25em;
+}
+
 .archive-title {
   border-top: 1px solid rgba(255,255,255,0.2);
   padding: 1em;
@@ -81,4 +93,36 @@ body {
   text-align: right;
   color: rgba(255,255,255,0.5);
   font-size: 1em;
+}
+
+.new-jot {
+}
+
+input.new-jot__jot-input  {
+  background: rgba(255,255,255,0);
+  border: none;
+  border-bottom: 3px solid $white;
+  border-radius: 0px;
+  color: $white;
+  font-size: 2em;
+  box-shadow: none;
+  &:focus {
+    border-bottom: 3px solid $white;
+    box-shadow: none;
+    outline: none;
+  }
+  &::-webkit-input-placeholder {
+    color: $white;
+  }
+  &::-moz-placeholder {
+    color: $white;
+  }
+}
+
+.new-jot__tip {
+  @include transform(skew(-10deg));
+  color: $white;
+  display: none;
+  font-size: 0.8em;
+
 }

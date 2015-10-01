@@ -10,16 +10,28 @@ $(document).ready(function() {
 
   $("body").keypress(function(e){
     if (e.which == 106) {
-      $('#new-jot').focus();
+     $('#jot-focus').slideDown('400');
     }
+  });
+
+  $(document).keydown(function(e) {
+    if (e.keyCode == 27)  $('#jot-focus').slideUp('400');
   });
 
    $('#new-jot-btn').click(function() {
     $('#jot-focus').slideDown('400');
+    $('#jot-title').focus();
    });
 
    $('#jot-close-btn').click(function() {
     $('#jot-focus').slideUp('400');
    });
+
+
+   $('#new-jot__jot-input').keyup(function(event) {
+      $('#new-jot__tip').fadeIn();
+   });
 });
+
+
 
